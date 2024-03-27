@@ -51,4 +51,5 @@ struct OrderView: View {
 
 #Preview {
     OrderView()
+        .environmentObject(OrderViewModel())
 }

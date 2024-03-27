@@ -17,7 +17,7 @@ struct APButton: View {
             .font(.title3)
             .fontWeight(.semibold)
             .frame(width: 260, height: 50)
-            .background(.brandPrimary)
+            .background(.accent)
             .cornerRadius(10)    }
 }
 

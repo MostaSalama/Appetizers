@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct AppetizersTabView: View {
+
     var body: some View {
         TabView {
             AppetizersListView()
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
-                        .foregroundStyle(.brandPrimary)
-                        
                 }
             AccountView()
                 .tabItem {
@@ -28,11 +27,13 @@ struct AppetizersTabView: View {
                     Text("Order")
                 }
         }//:TAB VIEW
-        .tint(.brandPrimary)
+        
         
     }
+        
 }
 
 #Preview {
     AppetizersTabView()
+        .environmentObject(OrderViewModel())
 }

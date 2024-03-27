@@ -10,7 +10,6 @@ import SwiftUI
 struct AppetizersListView: View {
     
     @StateObject var viewModel  = AppetizerListViewModel()
-    
 
     var body: some View {
         ZStack {
@@ -26,6 +25,7 @@ struct AppetizersListView: View {
                 }//:LIST
                 .navigationTitle("🍟 Appetizers")
                 .disabled(viewModel.isShowingDetail)
+                .listStyle(.plain)
             }//:NAVIGATION
             .onAppear{
                 viewModel.getAppetizers()
@@ -52,4 +52,5 @@ struct AppetizersListView: View {
 
 #Preview {
     AppetizersListView()
+        .environmentObject(OrderViewModel())
 }
