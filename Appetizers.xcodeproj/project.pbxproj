@@ -26,6 +26,7 @@
 		044D4BBA2B9FFB76005B4898 /* APButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D4BB92B9FFB76005B4898 /* APButton.swift */; };
 		044D4BBC2BA0A3DB005B4898 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D4BBB2BA0A3DB005B4898 /* AccountViewModel.swift */; };
 		044D4BC02BA0A71F005B4898 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D4BBF2BA0A71F005B4898 /* String+Ext.swift */; };
+		049EC0012BB3DDFC005433E0 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EC0002BB3DDFC005433E0 /* CustomModifiers.swift */; };
 		04EC85662BA6A2EF00AB126D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC85652BA6A2EF00AB126D /* User.swift */; };
 		04EC85682BA7B09500AB126D /* SignedInUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC85672BA7B09500AB126D /* SignedInUserView.swift */; };
 		04EC856B2BAD529500AB126D /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC856A2BAD529500AB126D /* EmptyState.swift */; };
@@ -52,6 +53,7 @@
 		044D4BB92B9FFB76005B4898 /* APButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton.swift; sourceTree = "<group>"; };
 		044D4BBB2BA0A3DB005B4898 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		044D4BBF2BA0A71F005B4898 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		049EC0002BB3DDFC005433E0 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		04EC85652BA6A2EF00AB126D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04EC85672BA7B09500AB126D /* SignedInUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInUserView.swift; sourceTree = "<group>"; };
 		04EC856A2BAD529500AB126D /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				044D4BB82B9FFB64005B4898 /* Buttons */,
 				044D4BB42B9C04BE005B4898 /* Cells */,
 				044D4BB32B9C04B0005B4898 /* UIKit Component */,
+				049EC0002BB3DDFC005433E0 /* CustomModifiers.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				044D4B672B8E2AB0005B4898 /* AppetizersTabView.swift in Sources */,
 				044D4B7D2B8E6B67005B4898 /* NetworkManager.swift in Sources */,
 				04EC85682BA7B09500AB126D /* SignedInUserView.swift in Sources */,
+				049EC0012BB3DDFC005433E0 /* CustomModifiers.swift in Sources */,
 				044D4BB72B9C05E2005B4898 /* AppetizerDetailView.swift in Sources */,
 				044D4B652B8E2AB0005B4898 /* AppetizersApp.swift in Sources */,
 				044D4BBA2B9FFB76005B4898 /* APButton.swift in Sources */,
