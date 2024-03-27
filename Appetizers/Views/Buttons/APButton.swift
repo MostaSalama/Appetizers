@@ -18,7 +18,8 @@ struct APButton: View {
             .fontWeight(.semibold)
             .frame(width: 260, height: 50)
             .background(.accent)
-            .cornerRadius(10)    }
+            .cornerRadius(10)
+    }
 }
 
 #Preview {

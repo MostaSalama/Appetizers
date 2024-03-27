@@ -12,7 +12,6 @@ struct OrderView: View {
     @EnvironmentObject var order : OrderViewModel
     
     
-    
     var body: some View {
         NavigationView {
           
@@ -33,8 +32,10 @@ struct OrderView: View {
                     Button(action: {
                         
                     }, label: {
-                        APButton(title: "$\(order.totalPrice , specifier: "%.2f") - Place Order")
+
+                        Text("$\(order.totalPrice , specifier: "%.2f") - Place Order")
                     })
+                    .standardButtonStyle()
                     .padding(.bottom,25)
                 
                    
