@@ -40,7 +40,7 @@ struct AccountView: View {
                                 isSignedIn = true
                             }, label: {
                                 Text("Save Changes")
-                                    .foregroundStyle(.brandPrimary)
+                                    
                             })
                         }
                         
@@ -50,7 +50,7 @@ struct AccountView: View {
                             Toggle("Extra Napkins", isOn: $viewModel.user.extraNapkins)
                             Toggle("Frequent Refills", isOn: $viewModel.user.frequentRefills)
                         }
-                        .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
+                        .toggleStyle(SwitchToggleStyle(tint: .accent))
                     }
                     
                 if viewModel.isSignedIn {
