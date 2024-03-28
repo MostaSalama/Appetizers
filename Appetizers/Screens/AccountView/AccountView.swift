@@ -12,6 +12,11 @@ struct AccountView: View {
     @StateObject private var viewModel = AccountViewModel()
     @AppStorage("user") private var userData : Data?
     @AppStorage("isSignedIn")  var isSignedIn = false
+    @FocusState private var focusedTextField : formTextField?
+    
+    enum formTextField {
+        case firstName , lastName , email
+    }
 
     var body: some View {
         NavigationView {
@@ -23,15 +28,23 @@ struct AccountView: View {
                             
                             TextField("First Name", text: $viewModel.user.firstName)
                                 .autocapitalization(.words)
+                                .focused($focusedTextField ,equals: .firstName)
+                                .onSubmit { focusedTextField = .lastName }
+                                .submitLabel(.next)
                                 
                             TextField("Last Name", text: $viewModel.user.lastName)
                                 .autocapitalization(.words)
-                                
+                                .focused($focusedTextField ,equals: .lastName)
+                                .onSubmit { focusedTextField = .email }
+                                .submitLabel(.next)
+                            
                             TextField("Email", text: $viewModel.user.email)
                                 .keyboardType(.emailAddress)
                                 .autocapitalization(.none)
                                 .autocorrectionDisabled()
-                                
+                                .focused($focusedTextField ,equals: .email)
+                                .submitLabel(.continue)
+                                .onSubmit { focusedTextField = nil }
                             
                             DatePicker("Birthday", selection: $viewModel.user.birthDate, displayedComponents: .date)
                             
@@ -52,12 +65,17 @@ struct AccountView: View {
                         }
                         .toggleStyle(SwitchToggleStyle(tint: .accent))
                     }
-                    
+                .navigationTitle("Account")
+                .toolbar{
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Button("Dismiss") { focusedTextField = nil }
+                    }
+                }
                 if viewModel.isSignedIn {
                     SignedInUserView(name: viewModel.user.firstName)
                 }
             }
-            .navigationTitle("Account")
+            
         }
         .onAppear{
             viewModel.retrieveUser()
@@ -72,4 +90,5 @@ struct AccountView: View {
 
 #Preview {
     AccountView()
+        .environmentObject(OrderViewModel())
 }

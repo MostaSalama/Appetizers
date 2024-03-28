@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct AppetizerDetailView: View {
     @EnvironmentObject var order : OrderViewModel
@@ -17,15 +18,20 @@ struct AppetizerDetailView: View {
     var body: some View {
         VStack{
             
-            AsyncImage(url: URL(string:appetizer.imageURL)) { image in
+            CachedAsyncImage(url: URL(string:appetizer.imageURL)) { image in
                 
                 image
                 .resizable()
                 .scaledToFit()
+                .cornerRadius(8)
+                
                 
             } placeholder: {
                 Image("food-placeholder")
                     .resizable()
+                    .scaledToFit()
+                    .cornerRadius(8)
+                    .frame(width: 300, height: 200)
             }
 
             

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CachedAsyncImage
 
 struct AppetizerListCell: View {
     
@@ -14,15 +14,19 @@ struct AppetizerListCell: View {
     var body: some View {
         HStack {
             
-            AsyncImage(url: URL(string:appetizer.imageURL)) { image in
+            CachedAsyncImage(url: URL(string:appetizer.imageURL)) { image in
                       image
                           .resizable()
                           .scaledToFit()
+                          .frame(width: 120, height: 90)
                           .cornerRadius(8)
                           
                   } placeholder: {
                       Image("food-placeholder")
                           .resizable()
+                          .scaledToFit()
+                          .cornerRadius(8)
+                          .frame(width: 120, height: 90)
                   }
                   .frame(width: 120, height: 90)
            

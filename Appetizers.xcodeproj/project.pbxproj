@@ -27,6 +27,7 @@
 		044D4BBC2BA0A3DB005B4898 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D4BBB2BA0A3DB005B4898 /* AccountViewModel.swift */; };
 		044D4BC02BA0A71F005B4898 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D4BBF2BA0A71F005B4898 /* String+Ext.swift */; };
 		049EC0012BB3DDFC005433E0 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EC0002BB3DDFC005433E0 /* CustomModifiers.swift */; };
+		04B9CFA62BB50E2B0098D6F6 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 04B9CFA52BB50E2B0098D6F6 /* CachedAsyncImage */; };
 		04EC85662BA6A2EF00AB126D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC85652BA6A2EF00AB126D /* User.swift */; };
 		04EC85682BA7B09500AB126D /* SignedInUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC85672BA7B09500AB126D /* SignedInUserView.swift */; };
 		04EC856B2BAD529500AB126D /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC856A2BAD529500AB126D /* EmptyState.swift */; };
@@ -66,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				044D4B842B8E7815005B4898 /* Alamofire in Frameworks */,
+				04B9CFA62BB50E2B0098D6F6 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +258,7 @@
 			name = Appetizers;
 			packageProductDependencies = (
 				044D4B832B8E7815005B4898 /* Alamofire */,
+				04B9CFA52BB50E2B0098D6F6 /* CachedAsyncImage */,
 			);
 			productName = Appetizers;
 			productReference = 044D4B612B8E2AB0005B4898 /* Appetizers.app */;
@@ -287,6 +290,7 @@
 			mainGroup = 044D4B582B8E2AB0005B4898;
 			packageReferences = (
 				044D4B822B8E7815005B4898 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				04B9CFA42BB50E2B0098D6F6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = 044D4B622B8E2AB0005B4898 /* Products */;
 			projectDirPath = "";
@@ -550,6 +554,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		04B9CFA42BB50E2B0098D6F6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -557,6 +569,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 044D4B822B8E7815005B4898 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		04B9CFA52BB50E2B0098D6F6 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04B9CFA42BB50E2B0098D6F6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
