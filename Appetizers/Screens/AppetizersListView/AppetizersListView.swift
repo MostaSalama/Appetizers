@@ -19,8 +19,11 @@ struct AppetizersListView: View {
                         AppetizerListCell(appetizer: appetizer)
                         .listRowSeparator(.hidden)
                         .onTapGesture {
-                            viewModel.isShowingDetail = true
+                                                                                    
                             viewModel.selectedAppetizer = appetizer
+                            withAnimation {
+                                viewModel.isShowingDetail = true
+                            }
                         }
              
                 }//:LIST
@@ -28,12 +31,13 @@ struct AppetizersListView: View {
                 .disabled(viewModel.isShowingDetail)
                 .listStyle(.plain)
             }//:NAVIGATION
-            .onAppear{
+            .task {
                 viewModel.getAppetizers()
             }
             .blur(radius: viewModel.isShowingDetail ? 20 : 0)
             
             if viewModel.isShowingDetail {
+                
                 AppetizerDetailView(appetizer: viewModel.selectedAppetizer!,
                     isShowingDetail: $viewModel.isShowingDetail)
             }

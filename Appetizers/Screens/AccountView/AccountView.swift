@@ -11,7 +11,6 @@ struct AccountView: View {
     
     @StateObject private var viewModel = AccountViewModel()
     @AppStorage("user") private var userData : Data?
-    @AppStorage("isSignedIn")  var isSignedIn = false
     @FocusState private var focusedTextField : formTextField?
     
     enum formTextField {
@@ -46,11 +45,13 @@ struct AccountView: View {
                                 .submitLabel(.continue)
                                 .onSubmit { focusedTextField = nil }
                             
-                            DatePicker("Birthday", selection: $viewModel.user.birthDate, displayedComponents: .date)
+                            DatePicker("Birthday",
+                                       selection: $viewModel.user.birthDate,
+                                       in: Date().oneHundredTenYearsAgo...Date().eightenYearsAgo,
+                                       displayedComponents: .date)
                             
                             Button(action: {
                                 viewModel.saveChanges()
-                                isSignedIn = true
                             }, label: {
                                 Text("Save Changes")
                                     
@@ -71,14 +72,14 @@ struct AccountView: View {
                         Button("Dismiss") { focusedTextField = nil }
                     }
                 }
-                if viewModel.isSignedIn {
+                if userData != nil {
                     SignedInUserView(name: viewModel.user.firstName)
                 }
             }
             
         }
         .onAppear{
-            viewModel.retrieveUser()
+                viewModel.retrieveUser()
         }
         .alert(item: $viewModel.alertItem) { alert in
             Alert(title: alert.title,

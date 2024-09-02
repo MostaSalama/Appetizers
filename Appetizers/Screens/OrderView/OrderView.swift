@@ -10,6 +10,8 @@ import SwiftUI
 struct OrderView: View {
     
     @EnvironmentObject var order : OrderViewModel
+    var vm = AccountViewModel()
+    @AppStorage("user") private var userData : Data?
     
     
     var body: some View {
@@ -23,6 +25,8 @@ struct OrderView: View {
                         }
                         .onDelete(perform: { indexSet in
                             order.delete(at: indexSet)
+                            
+                            
                         })
                         
                     }
@@ -41,7 +45,10 @@ struct OrderView: View {
                    
                 }
                 if order.items.count == 0 {
-                    EmptyState(imageName: "empty", message: "You have no items in your orders. \nPlease add an appetizer!")
+                    withAnimation {
+                        EmptyState(imageName: "empty", message: "You have no items in your orders. \nPlease add an appetizer!")
+                    }
+                    
                 }
          
             }

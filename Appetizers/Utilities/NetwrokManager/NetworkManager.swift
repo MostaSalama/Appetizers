@@ -16,22 +16,45 @@ final class NetworkManager {
     
     private init() {}
     
-    func getAppetizer (completed: @escaping (Result<[Appetizer] , APError>)-> Void) {
+//    func getAppetizer (completed: @escaping (Result<[Appetizer] , APError>)-> Void) {
+//        
+//        guard let url = URL(string: appetizersURL) else {
+//            completed(.failure(.invalidURL))
+//            return
+//        }
+//        
+//        let request = AF.request(url)
+//        
+//        request.responseDecodable(of: AppetizersResponse.self) { response in
+//            
+//                switch response.result {
+//                    
+//                case .success(let result):
+//                    completed(.success(result.request))
+//                case .failure(_):
+//                    completed(.failure(.invalidURL))
+//                    
+//                }
+//            }
+//    }
+
+
+    func getAppetizer() async throws -> [Appetizer] {
         guard let url = URL(string: appetizersURL) else {
-            completed(.failure(.invalidURL))
-            return
+            throw APError.invalidURL
         }
         
-        let request = AF.request(url)
-        request.responseDecodable(of: AppetizersResponse.self) { response in
-                switch response.result {
-                case .success(let result):
-                    completed(.success(result.request))
-                case .failure(_):
-                    completed(.failure(.invalidURL))
-                    
-                }
-            }
+        let (data , _) = try await URLSession.shared.data(from: url)
+        
+        do{
+            let decoder = JSONDecoder()
+            let response = try decoder.decode(AppetizersResponse.self, from: data)
+            return response.request
+        }catch {
+            throw APError.invalidData
+        }
+        
+        
     }
     
     

@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct ActivityIndicator : UIViewRepresentable {
-    func makeUIView(context: Context) -> UIActivityIndicatorView {
-        let acitivityIndicatorView = UIActivityIndicatorView(style: .large)
-        acitivityIndicatorView.color = .accent
-        acitivityIndicatorView.startAnimating()
-        return acitivityIndicatorView
-    }
-    
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {}
-    
-}
-
 struct LoadingView : View{
     
     var body: some View {
@@ -26,7 +14,9 @@ struct LoadingView : View{
             Color(.systemBackground)
                 .ignoresSafeArea(.all)
             
-            ActivityIndicator()
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint:.accent))
+                .scaleEffect(2)
         }
     }
 }

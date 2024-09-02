@@ -9,11 +9,12 @@ import SwiftUI
 import CachedAsyncImage
 
 struct AppetizerDetailView: View {
-    @EnvironmentObject var order : OrderViewModel
     
+    @EnvironmentObject var order : OrderViewModel
+    @StateObject var vm = AccountViewModel()
     let appetizer : Appetizer
     @Binding var isShowingDetail : Bool
-    @StateObject var viewModel = OrderViewModel()
+    
     
     var body: some View {
         VStack{
@@ -50,9 +51,9 @@ struct AppetizerDetailView: View {
            
             
             HStack(spacing:40) {
-            NutritionInfo(title: "Calories", value: appetizer.calories)
-            NutritionInfo(title: "Carbs", value: appetizer.carbs)
-            NutritionInfo(title: "Protein", value: appetizer.protein)
+            NutritionInfo(title: "Calories", value: "\(appetizer.calories) cl")
+            NutritionInfo(title: "Carbs", value: "\(appetizer.carbs) g")
+            NutritionInfo(title: "Protein", value: "\(appetizer.protein) g")
             }
             
             Spacer()
@@ -76,7 +77,10 @@ struct AppetizerDetailView: View {
         .shadow(radius: 40)
         .overlay (
             Button(action: {
-                isShowingDetail = false
+                withAnimation {
+                    isShowingDetail = false
+                }
+                
             }, label: {
                 Image(systemName: "xmark")
                     .foregroundStyle(.white)
@@ -96,7 +100,7 @@ struct AppetizerDetailView: View {
 
 struct NutritionInfo : View{
     let title : String
-    let value : Int
+    let value : String
     var body: some View {
         VStack(spacing:5){
             Text(title)
